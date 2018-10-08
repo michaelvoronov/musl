@@ -1,5 +1,6 @@
 #include "pthread_impl.h"
 
+#ifndef __wait
 void __wait(volatile int *addr, volatile int *waiters, int val, int priv)
 {
 	int spins=100;
@@ -15,3 +16,4 @@ void __wait(volatile int *addr, volatile int *waiters, int val, int priv)
 	}
 	if (waiters) a_dec(waiters);
 }
+#endif
