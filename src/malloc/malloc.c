@@ -305,7 +305,7 @@ void *malloc(size_t n)
 	i = bin_index_up(n);
 	for (;;) {
 		uint64_t mask = mal.binmap & -(1ULL<<i);
-		if (!mask) {
+		if (i == 64 || !mask) {
 			c = expand_heap(n);
 			if (!c) return 0;
 			if (alloc_rev(c)) {
