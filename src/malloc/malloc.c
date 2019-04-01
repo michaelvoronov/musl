@@ -309,7 +309,7 @@ static struct chunk *get_chunk_from_unsorted_bin(size_t n)
 	}
 
 	unlock_bin(unsorted_bin_id);
-	return 1;
+	return 0;
 }
 
 void *malloc(size_t n)
